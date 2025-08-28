@@ -1,7 +1,7 @@
 {
     "The Simpsons Game ps3 Tools": [
         {
-            "Name": "Lucas' Radcore Cement Library Builder",
+            "Name": "Lucas_Radcore_Cement_Library_Builder",
             "version": "1.0.0",
             "destination": "./TMP/Downloads",
             "unpack": true,
