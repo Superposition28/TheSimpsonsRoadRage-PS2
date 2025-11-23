@@ -1,0 +1,9 @@
+title = "The Simpsons Game ps3 Tools"
+
+
+[[tool]]
+Name = "Lucas_Radcore_Cement_Library_Builder"
+version = "1.0.0"
+destination = "./TMP/Downloads"
+unpack = true
+unpack_destination = "./Tools/Lucas_Radcore_Cement_Library_Builder"

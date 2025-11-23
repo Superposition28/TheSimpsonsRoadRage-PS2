@@ -1,0 +1,46 @@
+
+
+
+[[operation]]
+id = 0
+init = false
+run-all = false # rerun when using run-all to ensure config is valid
+depends-on = []
+script_type = "lua"
+script = "{{Game_Root}}/operations/init.lua"
+
+
+[[operation]]
+id = 1
+Name = "Download Required Tools"
+run-all = false
+init = false
+depends-on = [0]
+script_type = "engine"
+script = "download_tools"
+tools_manifest = "{{Game_Root}}/Tools.toml"
+[[operation.prompts]]
+type = "confirm"
+Name = "force download"
+message = "Force override existing downloads?"
+default = false
+
+
+[[operation]]
+id = 2
+Name = "Extract RCF Files"
+run-all = false
+init = false
+depends-on = [1]
+script_type = "lua"
+script = "{{Game_Root}}/operations/extract.lua"
+args = [
+    "--destination", "{{Game_Root}}/GameFiles/RCFOUT",
+    "--module-root", "{{Game_Root}}"
+]
+[[operation.prompts]]
+type = "text"
+Name = "source"
+message = "Source directory path (containing .rcf files):"
+cli_arg_prefix = "--source"
+
