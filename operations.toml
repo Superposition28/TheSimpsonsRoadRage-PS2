@@ -44,3 +44,40 @@ Name = "source"
 message = "Source directory path (containing .rcf files):"
 cli_arg_prefix = "--source"
 
+
+[[operation]]
+id = 3
+Name = "Convert Videos (.pss -> .ogv)"
+run-all = false
+init = false
+depends-on = [1, 2]
+script_type = "engine"
+script = "format-convert"
+tool = "ffmpeg"
+args = [
+    "-m", "ffmpeg",
+    "--type", "video",
+    "--source", "{{Game_Root}}/GameFiles/RCFOUT",
+    "--target", "{{Game_Root}}/GameFiles/RCFOUT",
+    "--input-ext", ".pss",
+    "--output-ext", ".ogv"
+]
+
+[[operation]]
+id = 4
+Name = "Convert Audio (.rsp -> .wav)"
+run-all = false
+init = false
+depends-on = [1, 2]
+script_type = "engine"
+script = "format-convert"
+tool = "vgmstream"
+args = [
+    "-m", "vgmstream",
+    "--type", "audio",
+    "--source", "{{Game_Root}}/GameFiles/RCFOUT",
+    "--target", "{{Game_Root}}/GameFiles/RCFOUT",
+    "--input-ext", ".rsp",
+    "--output-ext", ".wav"
+]
+
