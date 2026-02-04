@@ -17,7 +17,7 @@ run-all = false
 init = false
 depends-on = [0]
 script_type = "engine"
-script = "download_tools"
+script = "download-tools"
 tools_manifest = "{{Game_Root}}/Tools.toml"
 [[operation.prompts]]
 type = "confirm"
